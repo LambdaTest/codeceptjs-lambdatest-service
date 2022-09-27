@@ -5,7 +5,7 @@
 
 A CodeceptJS-LambdaTest Service is a [CodeceptJS](https://codecept.io/) helper to update test name and test results on LambdaTest after test execution using the `_passed` and `_failed` hooks.
 
-[![npm version](https://img.shields.io/npm/v/@lambdatest/node-fetch-sessions.svg?style=flat)](https://www.npmjs.com/package/codeceptjs-lambdatest-service)
+[![npm version](https://img.shields.io/npm/v/codeceptjs-lambdatest-service.svg?style=flat)](https://www.npmjs.com/package/codeceptjs-lambdatest-service)
 
 ## Steps to update test name and results on LambdaTest after test execution
 
@@ -56,7 +56,7 @@ Add the CodeceptJS-LambdaTest helper in `codecept.json/codecept.conf.js`
 * Use `updateTestName: true` to set the test name dynamically from test cases.
 
 ### License
-Node fetch sessions is available under the [Apache License 2.0.](https://github.com/LambdaTest/codeceptjs-lambdatest-service/blob/main/LICENSE) Use it wisely.
+CodeceptJS-LambdaTest Service is available under the [Apache License 2.0.](https://github.com/LambdaTest/codeceptjs-lambdatest-service/blob/main/LICENSE) Use it wisely.
 
 ### About LambdaTest
 [LambdaTest](https://www.lambdatest.com/) is a leading test execution and orchestration platform that is fast, reliable, scalable, and secure. It allows users to run both manual and automated testing of web and mobile apps across 3000+ different browsers, operating systems, and real device combinations. Using LambdaTest, businesses can ensure quicker developer feedback and hence achieve faster go to market. Over 500 enterprises and 1 Million + users across 130+ countries rely on LambdaTest for their testing needs.
