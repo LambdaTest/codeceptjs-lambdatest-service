@@ -14,7 +14,7 @@ class LambdaTestHelper extends Helper{
     this.lambdatestCredentials = {
       username: this.config.user,
       accessKey: this.config.key,
-      isApp: this.isApp || false
+      isApp: this.config?.isApp || false
     }
   }
 

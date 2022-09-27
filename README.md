@@ -24,8 +24,7 @@ Example:
       require: 'codeceptjs-lambdatest-service',
       user: process.env.LT_USERNAME,
       key: process.env.LT_ACCESS_KEY,
-      updateTestName: true,
-      isApp: true
+      updateTestName: true
     }
    }
 ...
@@ -36,4 +35,3 @@ To use this helper, users must provide the Lambdatest User & Access Key as part 
 ## Note
 This helper should be the first helper
 Use updateTestName = true to set the testname dynamically from testcases
-Use isApp = true for app automation testing
