@@ -1,14 +1,28 @@
 {
   "name": "codeceptjs-lambdatest-service",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a lambdatest service for codeceptjs integration",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "LambdaTest",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambdaTest/codeceptjs-lambdatest-service.git"
+  },
+  "author": "LambdaTest <keys@lambdatest.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/LambdaTest/codeceptjs-lambdatest-service/issues"
+  },
+  "homepage": "https://github.com/LambdaTest/codeceptjs-lambdatest-service#readme",
+  "keywords": [
+    "lambdatest",
+    "automation",
+    "browser",
+    "testing",
+    "cli"
+  ],
   "dependencies": {
     "axios": "^0.27.2",
     "codeceptjs": "^3.3.4"
