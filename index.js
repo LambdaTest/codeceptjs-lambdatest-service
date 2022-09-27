@@ -1,4 +1,4 @@
-import {updateSessionById} from "./lib/apiClient"
+var updateSessionById = require('./lib/apiClient').updateSessionById
 const supportedHelpers = [
   'WebDriver',
   'Appium',
