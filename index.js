@@ -82,6 +82,18 @@ class LambdaTestHelper extends Helper{
 
   }
 
+  _before(test)
+  {
+    var sessionId = this.getSessionId(this.helpers,this.lambdatestCredentials.isApp)
+    console.log("Test ID", sessionId)   
+
+    if (sessionId && test.title){
+      var body = this.getBody(test.title,null)
+      this.updateJob(sessionId, body, this.lambdatestCredentials)
+    }
+
+  }
+
 
 }
 module.exports =  LambdaTestHelper
