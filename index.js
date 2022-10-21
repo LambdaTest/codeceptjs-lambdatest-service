@@ -36,8 +36,11 @@ class LambdaTestHelper extends Helper{
 
   getBody(testTitle, status){
     let body = {}
+    if(status === "passed" || status === "failed") body.status_ind = status
+    else{
     if (this.updateTestName) body.name = testTitle    
     body.status_ind = status
+    }
 
     return body
   }
