@@ -34,11 +34,11 @@ class LambdaTestHelper extends Helper{
     throw new Error(`No matching helper found. Supported helpers: ${supportedHelpers.join('/')}`);
 }
 
-  getBody(testTitle, status){
+  getBody(testTitle = null, status = null){
     let body = {}
-    if (this.updateTestName) body.name = testTitle    
-    body.status_ind = status
-
+    if(status != null) body.status_ind = status
+    if (this.updateTestName && testTitle != null) body.name = testTitle    
+    
     return body
   }
 
@@ -62,7 +62,7 @@ class LambdaTestHelper extends Helper{
     console.log("Test ID", sessionId)   
 
     if (sessionId && test.title){
-      var body = this.getBody(test.title, "failed")
+      var body = this.getBody(null, "failed")
       this.updateJob(sessionId, body, this.lambdatestCredentials)
     }
 
@@ -75,10 +75,22 @@ class LambdaTestHelper extends Helper{
     console.log("Test ID", sessionId)   
 
     if (sessionId && test.title){
-      var body = this.getBody(test.title, "passed")
+      var body = this.getBody(null, "passed")
       this.updateJob(sessionId, body, this.lambdatestCredentials)
     }
 
+
+  }
+
+  _before(test)
+  {
+    var sessionId = this.getSessionId(this.helpers,this.lambdatestCredentials.isApp)
+    console.log("Test ID", sessionId)   
+
+    if (sessionId && test.title){
+      var body = this.getBody(test.title,null)
+      this.updateJob(sessionId, body, this.lambdatestCredentials)
+    }
 
   }
 
