@@ -13,7 +13,7 @@ A CodeceptJS-LambdaTest Service is a [CodeceptJS](https://codecept.io/) helper t
 ### Step 1 - Installation
 
 ```
-npm i codeceptjs-lambdatest-service --save-dev`
+npm i codeceptjs-lambdatest-service --save-dev
 ```
 
 ### Step 2 - Set LambdaTest Username and Access Key in environment variables.
