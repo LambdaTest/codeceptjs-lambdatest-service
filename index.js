@@ -2,6 +2,7 @@ var updateSessionById = require('./lib/apiClient').updateSessionById
 const supportedHelpers = [
   'WebDriver',
   'Appium',
+  'Playwright'
 ];
 
 
@@ -18,10 +19,16 @@ class LambdaTestHelper extends Helper{
     }
   }
 
-  getSessionId (helper, isApp) {
+ async getSessionId (helper, isApp) {
     try {
       if ( !isApp && helper.WebDriver) {
         return helper.WebDriver.browser.sessionId;
+      }
+      
+      if ( !isApp && helper.Playwright) {
+          const { page } = helper.Playwright;
+          const resp =await JSON.parse(await page.evaluate((_) => {}, `lambdatest_action: ${JSON.stringify({action: 'getTestDetails'})}`));
+          return resp?.data?.session_id;    
       }
       if (helper.helpers.Appium) {
           return helper.helpers.Appium.browser.sessionId;
@@ -55,10 +62,10 @@ class LambdaTestHelper extends Helper{
   }
 
  
-  _failed(test){
+ async _failed(test){
     console.log("Test Failed", test.title)
     
-    var sessionId = this.getSessionId(this.helpers,this.lambdatestCredentials.isApp)
+    var sessionId = await this.getSessionId(this.helpers,this.lambdatestCredentials.isApp)
     console.log("Test ID", sessionId)   
 
     if (sessionId && test.title){
@@ -69,9 +76,9 @@ class LambdaTestHelper extends Helper{
 
   }
 
-  _passed(test){
+  async _passed(test){
     console.log("Test Passed", test.title)
-    var sessionId = this.getSessionId(this.helpers,this.lambdatestCredentials.isApp)
+    var sessionId = await this.getSessionId(this.helpers,this.lambdatestCredentials.isApp)
     console.log("Test ID", sessionId)   
 
     if (sessionId && test.title){
@@ -82,9 +89,9 @@ class LambdaTestHelper extends Helper{
 
   }
 
-  _before(test)
+  async _before(test)
   {
-    var sessionId = this.getSessionId(this.helpers,this.lambdatestCredentials.isApp)
+    var sessionId = await this.getSessionId(this.helpers,this.lambdatestCredentials.isApp)
     console.log("Test ID", sessionId)   
 
     if (sessionId && test.title){

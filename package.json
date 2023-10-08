@@ -1,6 +1,6 @@
 {
   "name": "codeceptjs-lambdatest-service",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This is a lambdatest service for codeceptjs integration",
   "main": "index.js",
   "scripts": {
