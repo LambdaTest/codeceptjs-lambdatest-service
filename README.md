@@ -1,77 +1,131 @@
-![LambdaTest Logo](https://www.lambdatest.com/resources/images/logos/logo.svg)
+# Run CodeceptJS Tests on TestMu AI (Formerly LambdaTest)
 
-# CodeceptJS-LambdaTest Service
----
+<p align="center">
+  <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
+  <a href="https://www.npmjs.com/package/codeceptjs-lambdatest-service"><img src="https://img.shields.io/npm/v/codeceptjs-lambdatest-service.svg?style=flat" alt="npm version"></a>
+  <a href="https://community.testmuai.com/"><img src="https://img.shields.io/badge/Join%20the%20community-blueviolet.svg?style=for-the-badge&labelColor=000000" alt="Community"></a>
+</p>
 
-A CodeceptJS-LambdaTest Service is a [CodeceptJS](https://codecept.io/) helper to update test name and test results on LambdaTest after test execution using the `_passed` and `_failed` hooks.
+## Getting Started
 
-[![npm version](https://img.shields.io/npm/v/codeceptjs-lambdatest-service.svg?style=flat)](https://www.npmjs.com/package/codeceptjs-lambdatest-service)
+[TestMu AI](https://www.testmuai.com/) (Formerly LambdaTest) is the world's first full-stack AI Agentic Quality Engineering platform that empowers teams to test intelligently, smarter, and ship faster. Built for scale, it offers a full-stack testing cloud with 10K+ real devices and 3,000+ browsers. With AI-native test management, MCP servers, and agent-based automation, TestMu AI supports Selenium, Appium, Playwright, and all major frameworks. 
 
-## Steps to update test name and results on LambdaTest after test execution
+With TestMu AI (Formerly LambdaTest), you can run CodeceptJS tests across real browsers and operating systems. The `codeceptjs-lambdatest-service` is a CodeceptJS helper that automatically updates test names and results on the TestMu AI dashboard using `_passed` and `_failed` hooks. This sample shows how to configure CodeceptJS to run on the TestMu AI cloud.
 
+- [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
+- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
 
-### Step 1 - Installation
+### Prerequisites
 
-```
+- [Node.js](https://nodejs.org/en/) and npm
+- [CodeceptJS](https://codecept.io/) installed in your project
+- A TestMu AI account. [Sign up for free](https://www.testmuai.com/register/).
+- TestMu AI `Username` and `Access Key` from the [TestMu AI Automation Dashboard](https://automation.testmuai.com/).
+
+### Setup
+
+Install the service:
+
+```bash
 npm i codeceptjs-lambdatest-service --save-dev
 ```
 
-### Step 2 - Set LambdaTest Username and Access Key in environment variables.
- 
-For Linux/macOS:
-```
-$ export LT_USERNAME="YOUR_USERNAME"
-$ export LT_ACCESS_KEY="YOUR ACCESS KEY"
-```
-For Windows:
-```
-$ set LT_USERNAME="YOUR_USERNAME"
-$ set LT_ACCESS_KEY="YOUR ACCESS KEY"
+Set your TestMu AI credentials as environment variables:
+
+For **Linux/macOS**:
+```bash
+export LT_USERNAME="YOUR_USERNAME"
+export LT_ACCESS_KEY="YOUR_ACCESS_KEY"
 ```
 
-### Step 3 - Configuration
-
-Add the CodeceptJS-LambdaTest helper in `codecept.json/codecept.conf.js`
-
-**Example**:
-
+For **Windows**:
+```bash
+set LT_USERNAME="YOUR_USERNAME"
+set LT_ACCESS_KEY="YOUR_ACCESS_KEY"
 ```
+
+Add the `codeceptjs-lambdatest-service` helper to your `codecept.json` or `codecept.conf.js`:
+
+```json
 {
-...
-   helper: {
-     LTHelper: {
-      require: 'codeceptjs-lambdatest-service',
-      user: process.env.LT_USERNAME,
-      key: process.env.LT_ACCESS_KEY,
-      updateTestName: true
+  "helper": {
+    "LTHelper": {
+      "require": "codeceptjs-lambdatest-service",
+      "user": "process.env.LT_USERNAME",
+      "key": "process.env.LT_ACCESS_KEY",
+      "updateTestName": true
     }
-   }
-...
+  }
 }
 ```
 
-**Note**
-* To use this helper, you must provide the LambdaTest User & Access Key as part of the configuration.
-* This helper should be the first helper
-* Use `updateTestName: true` to set the test name dynamically from test cases.
+**Note:** This helper must be listed first. Use `updateTestName: true` to dynamically set the test name from test cases.
 
-### License
-CodeceptJS-LambdaTest Service is available under the [Apache License 2.0.](https://github.com/LambdaTest/codeceptjs-lambdatest-service/blob/main/LICENSE) Use it wisely.
+### Run tests
 
-### About LambdaTest
-[LambdaTest](https://www.lambdatest.com/) is a leading test execution and orchestration platform that is fast, reliable, scalable, and secure. It allows users to run both manual and automated testing of web and mobile apps across 3000+ different browsers, operating systems, and real device combinations. Using LambdaTest, businesses can ensure quicker developer feedback and hence achieve faster go to market. Over 500 enterprises and 1 Million + users across 130+ countries rely on LambdaTest for their testing needs.
+Run your CodeceptJS tests as usual. The service will automatically report test names and pass/fail status to the TestMu AI dashboard:
 
-#### Features
-- Run Selenium, Cypress, Puppeteer, Playwright, and Appium automation tests across 3000+ real desktop and mobile environments.
-- Real-time cross browser testing on 3000+ environments.
-- Test on Real device cloud
-- Blazing fast test automation with HyperExecute
-- Accelerate testing, shorten job times and get faster feedback on code changes with Test At Scale.
-- Smart Visual Regression Testing on cloud
-- 120+ third-party integrations with your favorite tool for CI/CD, Project Management, Codeless Automation, and more.
-- Automated Screenshot testing across multiple browsers in a single click.
-- Local testing of web and mobile apps.
-- Online Accessibility Testing across 3000+ desktop and mobile browsers, browser versions, and operating systems.
-- Geolocation testing of web and mobile apps across 53+ countries.
-- LT Browser - for responsive testing across 50+ pre-installed mobile, tablets, desktop, and laptop viewports
+```bash
+npx codeceptjs run
+```
 
+Your results will appear in the [TestMu AI Automation Dashboard](https://automation.testmuai.com/).
+
+### Local testing with TestMu AI Tunnel
+
+To test locally hosted apps, set up the TestMu AI tunnel. OS-specific guides:
+
+- [Local Testing on Windows](https://www.testmuai.com/support/docs/local-testing-for-windows/)
+- [Local Testing on macOS](https://www.testmuai.com/support/docs/local-testing-for-macos/)
+- [Local Testing on Linux](https://www.testmuai.com/support/docs/local-testing-for-linux/)
+
+Enable tunnel in your CodeceptJS capabilities:
+
+```json
+{
+  "tunnel": true
+}
+```
+
+## Contributions
+
+Contributions are welcome. Open an issue to discuss your idea before submitting a pull request. When reporting bugs, include your Node.js version, OS, and Angular CLI version.
+
+## TestMu AI (Formerly LambdaTest) Community
+
+Connect with testers and developers in the [TestMu AI Community](https://community.testmuai.com/). Ask questions, share what you are building, and discuss best practices in test automation and DevOps.
+  
+## TestMu AI (Formerly LambdaTest) Certifications
+
+Earn free [TestMu AI Certifications](https://www.testmuai.com/certifications/) for testers, developers, and QA engineers. Validate your skills in Selenium, Cypress, Playwright, Appium, Espresso and more. Industry-recognized, shareable on LinkedIn, and built by practitioners, not marketers.
+
+## Learning Resources by TestMu AI (Formerly LambdaTest)
+
+Learn modern testing through tutorials, guides, videos, and weekly updates:
+
+* [TestMu AI Blog](https://www.testmuai.com/blog/)
+* [TestMu AI Learning Hub](https://www.testmuai.com/learning-hub/)
+* [TestMu AI on YouTube](https://www.youtube.com/@TestMuAI)
+* [TestMu AI Newsletter](https://www.testmuai.com/newsletter/)
+  
+## LambdaTest is Now TestMu AI
+
+On **January 12, 2026**, [LambdaTest evolved to TestMu AI](https://www.testmuai.com/lambdatest-is-now-testmuai/), the world's first fully autonomous **Agentic AI Quality Engineering Platform**.
+
+Same team. Same infrastructure. Same customer accounts. All existing LambdaTest logins, scripts, capabilities, and integrations continue to work without change.
+
+ð Find the new home for [LambdaTest](https://www.testmuai.com).
+
+### How LambdaTest Evolved into TestMu AI
+
+In 2017, we launched LambdaTest with a simple mission: make testing fast, reliable, and accessible. As LambdaTest grew, we expanded into Test Intelligence, Visual Regression Testing, Accessibility Testing, API Testing, and Performance Testing, covering the full depth of the testing lifecycle.
+
+As software development entered the AI era, testing had to evolve, too. We rebuilt the architecture to be AI-native from the ground up, with autonomous agents that **plan, author, execute, analyze, and optimize tests** while keeping humans in the loop. The platform integrates with your repos, CI, IDEs, and terminals, continuously learning from every code change and development signal.
+
+That evolution earned a new name: **TestMu AI**, built for an AI-first future of quality engineering. TestMu is not a new name for us. It is the name of our annual community conference, which has brought together 100,000+ quality engineers to discuss how AI would reshape testing, long before that became an industry norm. 
+
+What started as a high-performance cloud testing platform has transformed into an AI-native, multi-agent system powering a connected, end-to-end quality layer. That evolution defined a new identity: LambdaTest evolved into TestMu AI, built for an AI-first future of quality engineering.
+
+## Support
+
+Got a question? Email [support@testmuai.com](mailto:support@testmuai.com) or chat with us 24x7 from our chat portal.
