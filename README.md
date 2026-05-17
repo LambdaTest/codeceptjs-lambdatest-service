@@ -1,4 +1,4 @@
-# Run CodeceptJS Tests on TestMu AI (Formerly LambdaTest)
+﻿# Run CodeceptJS Tests on TestMu AI (Formerly LambdaTest)
 
 <p align="center">
   <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
@@ -17,10 +17,10 @@ With TestMu AI (Formerly LambdaTest), you can run CodeceptJS tests across real b
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/en/) and npm
-- [CodeceptJS](https://codecept.io/) installed in your project
-- A TestMu AI account. [Sign up for free](https://www.testmuai.com/register/).
-- TestMu AI `Username` and `Access Key` from the [TestMu AI Automation Dashboard](https://automation.testmuai.com/).
+- Node.js and npm
+- CodeceptJS installed in your project
+- A TestMu AI account. Sign up for free.
+- TestMu AI `Username` and `Access Key` from the TestMu AI Automation Dashboard.
 
 ### Setup
 
@@ -69,7 +69,7 @@ Run your CodeceptJS tests as usual. The service will automatically report test n
 npx codeceptjs run
 ```
 
-Your results will appear in the [TestMu AI Automation Dashboard](https://automation.testmuai.com/).
+Your results will appear in the TestMu AI Automation Dashboard.
 
 ### Local testing with TestMu AI Tunnel
 
