@@ -13,7 +13,7 @@
 The `codeceptjs-lambdatest-service` is a CodeceptJS helper for TestMu AI (Formerly LambdaTest) that automatically updates test names and results on the TestMu AI dashboard using `_passed` and `_failed` hooks. This sample shows how to configure CodeceptJS to run on the TestMu AI cloud.
 
 - [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
-- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
+- Follow the [CodeceptJS with Selenium on TestMu AI](https://www.testmuai.com/support/docs/codeceptjs-with-selenium/?utm_source=github&utm_medium=referral) for the full setup walkthrough.
 
 ### Prerequisites
 
